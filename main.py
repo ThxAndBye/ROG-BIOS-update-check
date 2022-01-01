@@ -8,7 +8,7 @@ from bs4 import BeautifulSoup
 api_url = "https://www.asus.com/support/api/product.asmx/GetPDBIOS?website=global"
 rog_url = "https://rog.asus.com/motherboards/"
 
-user_agent = "ThxAndBot/0.2 (+https://github.com/ThxAndBye)"
+user_agent = "ThxAndBot/0.2 (+https://github.com/ThxAndBye/ROG-BIOS-update-check)"
 request = urllib.request.Request(
     "https://www.asus.com",
     data=None,
