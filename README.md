@@ -33,4 +33,5 @@ Press Enter to exit ...
 `pip install beautifulsoup4`  
 
 ## TODO
-Doesn't work with TUF and ASUS boards yet as they encode the Product ID differently to the HTML of ROG boards.
+- Doesn't work with TUF and ASUS boards yet as they encode the Product ID differently to the HTML of ROG boards. I also don't have any non-ROG ASUS board running Windows to test.  
+- Implement toast notifications to enable check and notification on system startup.
