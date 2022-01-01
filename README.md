@@ -2,6 +2,16 @@
 Checks if a new BIOS version is availabe for your [ROG mainboard](https://rog.asus.com/motherboards-group/).  
 Just execute `main.py`, no input needed.
 
+Example output:
+```
+C:\Users\Thx And Bye\Desktop>main.py
+Your Board: ROG-STRIX-X470-I-GAMING, installed BIOS: 4603
+Retrieving Board ID ... 10028
+Retrieving newest BIOS version ... 4603
+
+No new BIOS release found!
+```
+
 ## Dependencies
 [WMI](https://pypi.org/project/WMI/) to check installed BIOS version and mainboard model automatically.  
 `pip install wmi`  
