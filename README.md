@@ -1,5 +1,5 @@
 # ROG BIOS update check
-Checks if a new BIOS version is availabe for your [ROG mainboard](https://rog.asus.com/motherboards-group/).
+Checks if a new BIOS version is availabe for your [ROG mainboard](https://rog.asus.com/motherboards-group/).  
 Just execute `main.py`, no input needed.
 
 ## Dependencies
