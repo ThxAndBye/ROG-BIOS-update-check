@@ -23,6 +23,7 @@ BIOS Update Available! Version 4603 Stable release from: 22 Sep 2021
 1. Update AMD AM4 AGESA V2 PI 1.2.0.3 Patch C
 2.Improve system performance
 Download: https://dlcdnets.asus.com/pub/ASUS/mb/BIOS/ROG-STRIX-X470-I-GAMING-ASUS-4603.ZIP
+Press Enter to exit ...
 ```
 
 ## Dependencies
