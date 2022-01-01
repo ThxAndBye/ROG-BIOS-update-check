@@ -14,6 +14,7 @@ No new BIOS release found!
 
 When an update is available:
 ```
+C:\Users\Thx And Bye\Desktop>main.py
 Your Board: ROG-STRIX-X470-I-GAMING, installed BIOS: 4502
 Retrieving Board ID ... 10028
 Retrieving newest BIOS version ... 4603
