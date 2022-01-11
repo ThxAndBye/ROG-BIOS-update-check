@@ -1,6 +1,7 @@
 import wmi
 import copy
 import json
+import time
 import urllib.request
 from datetime import datetime
 from bs4 import BeautifulSoup
@@ -31,6 +32,14 @@ class BIOS:
         return "Version " + self.version + " " + ("Stable" if self.is_stable else "Beta") + \
                " release from: " + self.release_date.strftime("%d %b %Y")
 
+
+def sleep_with_output(sec):
+    if sec > 0:
+        print("\rWaiting for: " + str(sec), end=" ", flush=True)
+        time.sleep(1)
+        sleep_with_output(sec - 1)
+    else:
+        print("\rDone.", end=" ", flush=True)
 
 # The Product ID is encoded into a JSON that is inline in the HTML
 def get_rog_id_by_name(model):
@@ -104,6 +113,7 @@ if __name__ == '__main__':
                       str(release.description) + "\n" +
                       "Download: " + release.download_url)
                 input("Press Enter to exit ...")
-                exit()
-            print("No new BIOS release found!")
+            else:
+                print("No new BIOS release found!")
+                sleep_with_output(3)
             exit()
