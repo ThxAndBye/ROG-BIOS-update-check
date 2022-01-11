@@ -35,11 +35,12 @@ class BIOS:
 
 def sleep_with_output(sec):
     if sec > 0:
-        print("\rWaiting for: " + str(sec), end=" ", flush=True)
+        print("\rWaiting for: " + str(sec) + " ...", end=" ", flush=True)
         time.sleep(1)
         sleep_with_output(sec - 1)
     else:
-        print("\rDone.", end=" ", flush=True)
+        print("\rDone.")
+
 
 # The Product ID is encoded into a JSON that is inline in the HTML
 def get_rog_id_by_name(model):
@@ -102,10 +103,10 @@ if __name__ == '__main__':
 
     # Retrieve BIOS Releases for the installed mainboard
     print("Retrieving newest BIOS version ...", end=" ", flush=True)
-    BIOS_array = get_bios_releases(product_id, board_model)
+    bios_releases = get_bios_releases(product_id, board_model)
 
     # Print newest stable version and notify the user if the installed version is outdated
-    for release in BIOS_array:
+    for release in bios_releases:
         if release.is_stable:
             print(release.version + "\n")
             if release.version > installed_bios:
