@@ -39,7 +39,7 @@ def sleep_with_output(sec):
         time.sleep(1)
         sleep_with_output(sec - 1)
     else:
-        print("\rDone.")
+        print("\rDone." + 16 * ' ')
 
 
 # The Product ID is encoded into a JSON that is inline in the HTML
@@ -96,14 +96,20 @@ if __name__ == '__main__':
     board_model = get_board_model()
     print("Your Board: " + str(board_model) + ", installed BIOS: " + str(installed_bios))
 
-    # Retrieve ASUS ProductID to query API for BIOS releases
-    print("Retrieving Board ID ...", end=" ", flush=True)
-    product_id = get_rog_id_by_name(board_model)
-    print(str(product_id))
+    try:
+        # Retrieve ASUS ProductID to query API for BIOS releases
+        print("Retrieving Board ID ...", end=" ", flush=True)
+        product_id = get_rog_id_by_name(board_model)
+        print(str(product_id))
 
-    # Retrieve BIOS Releases for the installed mainboard
-    print("Retrieving newest BIOS version ...", end=" ", flush=True)
-    bios_releases = get_bios_releases(product_id, board_model)
+        # Retrieve BIOS Releases for the installed mainboard
+        print("Retrieving newest BIOS version ...", end=" ", flush=True)
+        bios_releases = get_bios_releases(product_id, board_model)
+
+    except urllib.error.URLError:
+        print("No Internet connection!")
+        sleep_with_output(3)
+        exit()
 
     # Print newest stable version and notify the user if the installed version is outdated
     for release in bios_releases:
