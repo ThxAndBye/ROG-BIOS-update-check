@@ -56,12 +56,12 @@ def get_rog_id_by_name(model):
         soup = BeautifulSoup(html, "html.parser")
         for script in soup.findAll("script"):
             if "window[\"__INITIAL_STATE__\"] = JSON.parse" in str(script):
-                script = script.contents
-
-                match = re.search(r'window\[\"__INITIAL_STATE__\"\]\s=\sJSON\.parse\(\"(.*)\"', str(script)).group(1)
-                match = match.replace('\\\\', '\\')
-                match = match.encode().decode('unicode-escape')
-                json_board = json.loads(match)
+                contents = str(script.contents)
+                search = re.search(r'window\[\"__INITIAL_STATE__\"\]\s=\sJSON\.parse\(\"(.*)\"', contents)
+                group = search.group(1)
+                group = group.replace('\\\\', '\\')
+                group = group.encode().decode('unicode-escape')
+                json_board = json.loads(group)
                 return json_board["Cookie"]["productId"]["value"]
 
 
