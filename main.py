@@ -55,7 +55,7 @@ def get_rog_id_by_name(model):
         soup = BeautifulSoup(html, "html.parser")
         for script in soup.findAll("script"):
             if "window[\"__INITIAL_STATE__\"] = JSON.parse" in str(script):
-                json_board = json.loads(str(script).split("\"")[3].encode().decode('unicode-escape'))
+                json_board = json.loads(str(script).split("\"")[7].encode().decode('unicode-escape'))
                 return json_board["Cookie"]["productId"]["value"]
 
 
