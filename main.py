@@ -59,7 +59,8 @@ def get_rog_id_by_name(model):
                 script = script.contents
 
                 match = re.search(r'window\[\"__INITIAL_STATE__\"\]\s=\sJSON\.parse\(\"(.*)\"', str(script)).group(1)
-                match = match.encode().decode('unicode-escape').encode().decode('unicode-escape')
+                match = match.replace('\\\\', '\\')
+                match = match.encode().decode('unicode-escape')
                 json_board = json.loads(match)
                 return json_board["Cookie"]["productId"]["value"]
 
